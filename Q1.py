@@ -22,4 +22,5 @@ model.add_transition(s2, model.end, 0.1)
 model.bake()
 
 print(model)
-#viterbi(sequence)
+#model.viterbi(sequence)
+
