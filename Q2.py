@@ -31,6 +31,7 @@ for y in range(10):
     tc = 0
     tt = 0
     tg = 0
+    mismatch = 0
 
     ccgg = 0
     agct = 0
@@ -76,6 +77,8 @@ for y in range(10):
     acgt = ac + gt
     aatt = aa + tt
 
+    mismatch = ac + at + ag + ca + ct + cg + ga + gc + gt + ta + tc + tg
+
     total = aa + ac + at + ag + ca + cc + ct + cg + ga + gc + gt + gg + ta + tc + tt + tg
 
     print("aa: ", aa)
@@ -98,6 +101,7 @@ for y in range(10):
     print("tt: ", tt)
     print("tg: ", tg)
 
+    print("mismatch: ", mismatch)
     print("total: ", total)
 
     if (ctr1 == 1):
