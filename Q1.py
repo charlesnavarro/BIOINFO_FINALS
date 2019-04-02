@@ -1,8 +1,31 @@
 from pomegranate import *
+from Bio.Seq import Seq
 
 s = open("NC_001416.txt", "r")
 if s.mode == 'r':
-    sequence = (s.read())
+    sequence = Seq(s.read())
+
+# src = sequence.reverse_complement()
+# s_new = sequence + src
+# aa = s_new.count_overlap("aa")
+# ac = s_new.count_overlap("ac")
+# at = s_new.count_overlap("at")
+# ag = s_new.count_overlap("ag")
+#
+# ca = s_new.count_overlap("ca")
+# cc = s_new.count_overlap("cc")
+# ct = s_new.count_overlap("ct")
+# cg = s_new.count_overlap("cg")
+#
+# ga = s_new.count_overlap("ga")
+# gc = s_new.count_overlap("gc")
+# gt = s_new.count_overlap("gt")
+# gg = s_new.count_overlap("gg")
+#
+# ta = s_new.count_overlap("ta")
+# tc = s_new.count_overlap("tc")
+# tt = s_new.count_overlap("tt")
+# tg = s_new.count_overlap("tg")
 
 d1 = DiscreteDistribution({'A': 0.2462, 'C': 0.2476, 'G': 0.2985, 'T': 0.2077})
 d2 = DiscreteDistribution({'A': 0.2700, 'C': 0.2084, 'G': 0.1981, 'T': 0.3236})
