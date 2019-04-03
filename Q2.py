@@ -1,182 +1,158 @@
-#BIOINFO HW2
+#BIOINFO MIDTERM Q1
+import numpy
 
-from Bio.Seq import Seq
-f = open("NC_001416.txt", "r")
+
+'''
+Sij = max
+max = Si-1, j-1 + M[X[i],Y[j]]
+    = Si-1, j+gap
+    = Si, j-1+gap
+
+'''
+
+#tacggtat
+f = open("string1.txt", "r")
 if f.mode == 'r':
-    s = Seq(f.read()).lower()
-    print(s)
+    x = (f.read())
+#ggacgtacg
+f = open("string2.txt", "r")
+if f.mode == 'r':
+    y = (f.read())
+print(x, y)
+#gap = d
 
-for y in range(10):
-    ctr1 = y + 1
-    src = s.reverse_complement().lower()
-    s_new = s + src
-    print('reverse complement is %s' % s.reverse_complement())
+match = input("what score would you like for a match?")
+type(match)
+match = int(match)
 
-    aa = 0
-    ac = 0
-    at = 0
-    ag = 0
+mismatch = input("What score would you like for a mismatch?")
+type(mismatch)
+mismatch = int(mismatch)
 
-    ca = 0
-    cc = 0
-    ct = 0
-    cg = 0
+gap = input("What gap penalty would you like?")
+type(gap)
+gap = int(gap)
 
-    ga = 0
-    gc = 0
-    gt = 0
-    gg = 0
+matrix = numpy.zeros(shape=(4, 4), dtype=int)
+for m in range(4):
+    for m1 in range(4):
+        if(m == m1):
+            matrix[m][m1] = match
+        if(m != m1):
+            matrix[m][m1] = mismatch
 
-    ta = 0
-    tc = 0
-    tt = 0
-    tg = 0
-    mismatch = 0
+print(matrix)
 
-    ccgg = 0
-    agct = 0
-    gatc = 0
-    catg = 0
-    acgt = 0
-    aatt = 0
+def getMax (m1, m2, m3):
+    max = m1
+    if(m2 > m1):
+        max = m2
+    if(m2 > m3):
+        if (m2 > max):
+            max = m2
+    if(m3 > m1):
+        if(m3 > max):
+            max = m3
+    if(m3 > m2):
+        if (m3 > max):
+            max = m3
+    return max
 
-    a = 0
-    c = 0
+def getScore (i, j, g):
+    m1 = 0
+    m2 = 0
+    m3 = 0
+    max = 0
+    print(i-1, j-1)
+    m2 = scoreTable[i][j - 1] + g
+    m3 = scoreTable[i - 1][j] + g
+    #a compared to all
+    if (x[j-1] == 'a' and y[i-1] == 'a'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[0][0]
+        print("aa")
+    elif (x[j-1] == 'a' and y[i-1] == 'c'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[0][1]
+        miss = miss + 1
+        print("ac")
+    elif (x[j-1] == 'a' and y[i-1] == 't'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[0][2]
+        print("at")
+    elif (x[j-1] == 'a' and y[i-1] == 'g'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[0][3]
+        print("ag")
+    #c paired to all
+    elif (x[j-1] == 'c' and y[i-1] == 'a'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[1][0]
+        print("ca")
+    elif (x[j-1] == 'c' and y[i-1] == 'c'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[1][1]
+        print("cc")
+    elif (x[j-1] == 'c' and y[i-1] == 't'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[1][2]
+        print("ct")
+    elif (x[j-1] == 'c' and y[i-1] == 'g'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[1][3]
+        print("cg")
+    #t compared to all
+    elif (x[j-1] == 't' and y[i-1] == 'a'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[2][0]
+        print("ta")
+    elif (x[j-1] == 't' and y[i-1] == 'c'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[2][1]
+        print("tc")
+    elif (x[j-1] == 't' and y[i-1] == 't'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[2][2]
+        print("tt")
+    elif (x[j-1] == 't' and y[i-1] == 'g'):
+        print("tg")
+        m1 = scoreTable[i - 1][j - 1] + matrix[2][3]
+    #g compared to all
+    elif (x[j-1] == 'g' and y[i-1] == 'a'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[3][0]
+        print("ga")
+    elif (x[j-1] == 'g' and y[i-1] == 'c'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[3][1]
+        print("gc")
+    elif (x[j-1] == 'g' and y[i-1] == 't'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[3][2]
+        print("gt")
+    elif (x[j-1] == 'g' and y[i-1] == 'g'):
+        m1 = scoreTable[i - 1][j - 1] + matrix[3][3]
+        print("gg")
+
+    max = getMax(m1, m2, m3)
+
+    # if ((i == 3 and j == 4) or (i == 9 and j == 6)):
+    #     print(m2, m3, max)
+    #     print("HERE")
+    print(i, j, g)
+    print(m1, m2, m3, max)
+    return max
+
+score = 0
+
+scoreTable = numpy.zeros(shape=(len(y)+1, len(x)+1), dtype=int)
+#            r  c
+# scoreTable[0][1] = 1
+
+if(len(x)>len(y)):
+    g = gap * (len(y) - len(x))
+elif(len(y)> len(x)):
+    g = gap * (len(x) - len(y))
+elif(len(x) == len(y)):
     g = 0
-    t = 0
+print(g)
 
-    aa = s_new.count_overlap("aa")
-    ac = s_new.count_overlap("ac")
-    at = s_new.count_overlap("at")
-    ag = s_new.count_overlap("ag")
-
-    ca = s_new.count_overlap("ca")
-    cc = s_new.count_overlap("cc")
-    ct = s_new.count_overlap("ct")
-    cg = s_new.count_overlap("cg")
-
-    ga = s_new.count_overlap("ga")
-    gc = s_new.count_overlap("gc")
-    gt = s_new.count_overlap("gt")
-    gg = s_new.count_overlap("gg")
-
-    ta = s_new.count_overlap("ta")
-    tc = s_new.count_overlap("tc")
-    tt = s_new.count_overlap("tt")
-    tg = s_new.count_overlap("tg")
-
-    a = s_new.count_overlap("a")
-    c = s_new.count_overlap("c")
-    t = s_new.count_overlap("t")
-    g = s_new.count_overlap("g")
-
-    ccgg = cc + gg
-    agct = ag + ct
-    gatc = ga + tc
-    catg = ca + tg
-    acgt = ac + gt
-    aatt = aa + tt
-
-    mismatch = ac + at + ag + ca + ct + cg + ga + gc + gt + ta + tc + tg
-
-    total = aa + ac + at + ag + ca + cc + ct + cg + ga + gc + gt + gg + ta + tc + tt + tg
-
-    print("aa: ", aa)
-    print("ac: ", ac)
-    print("at: ", at)
-    print("ag: ", ag)
-
-    print("ca: ", ca)
-    print("cc: ", cc)
-    print("ct: ", ct)
-    print("cg: ", cg)
-
-    print("ga: ", ga)
-    print("gc: ", gc)
-    print("gt: ", gt)
-    print("gg: ", gg)
-
-    print("ta: ", ta)
-    print("tc: ", tc)
-    print("tt: ", tt)
-    print("tg: ", tg)
-
-    print("mismatch: ", mismatch)
-    print("total: ", total)
-
-    if (ctr1 == 1):
-        o = cg / total
-        e = ((c + g) / len(s_new))
-        r = o / e
-        print("o: ", o)
-        print("e: ", e)
-        print("r: ", r)
-    elif (ctr1 == 2):
-        o = gc / total
-        e = ((g + c) / len(s_new))
-        r = o / e
-        print("o: ", o)
-        print("e: ", e)
-        print("r: ", r)
-    elif (ctr1 == 3):
-        o = ccgg / total
-        e = ((c + g) / len(s_new)) * ((c + g) / len(s_new))
-        r = o / e
-        print("o: ", o)
-        print("e: ", e)
-        print("r: ", r)
-    elif (ctr1 == 4):
-        o = agct / total
-        e = ((a + t) / len(s_new)) * ((g + c) / len(s_new))
-        r = o / e
-        print("o: ", o)
-        print("e: ", e)
-        print("r: ", r)
-    elif (ctr1 == 5):
-        o = gatc / total
-        e = ((g + c) / len(s_new)) * ((a + t) / len(s_new))
-        r = o / e
-        print("o: ", o)
-        print("e: ", e)
-        print("r: ", r)
-    elif (ctr1 == 6):
-        o = catg / total
-        e = ((c + g) / len(s_new)) * ((a + t) / len(s_new))
-        r = o / e
-        print("o: ", o)
-        print("e: ", e)
-        print("r: ", r)
-    elif (ctr1 == 7):
-        o = acgt / total
-        e = ((a + t) / len(s_new)) * ((c + g) / len(s_new))
-        r = o / e
-        print("o: ", o)
-        print("e: ", e)
-        print("r: ", r)
-    elif (ctr1 == 8):
-        o = aatt / total
-        e = ((a + t) / len(s_new)) * ((a + t) / len(s_new))
-        r = o / e
-        print("o: ", o)
-        print("e: ", e)
-        print("r: ", r)
-    elif (ctr1 == 9):
-        o = ta / total
-        e = ((t + a) / len(s_new))
-        r = o / e
-        # print("c: ", c)
-        # print("g: ", g)
-        # print("len: ", len(src))
-        print("o: ", o)
-        print("e: ", e)
-        print("r: ", r)
-    elif (ctr1 == 10):
-        o = at / total
-        e = ((a + t) / len(s_new))
-        r = o / e
-        # print("c: ", c)
-        # print("g: ", g)
-        # print("len: ", len(s_new))
-        print("o: ", o)
-        print("e: ", e)
-        print("r: ", r)
+for i in range(0, len(y)+1):
+    for j in range(0, len(x)+1):
+        #NOT A BASE CASE
+        if(i != 0 and j != 0):
+            score = getScore(i, j, g)
+            scoreTable[i][j] = score
+        #BASE CASE
+        if(i == 0):
+            scoreTable[i][j] = j * g
+        #BASE CASE
+        elif(j == 0):
+            scoreTable[i][j] = i * g
+        print(scoreTable, "\n")

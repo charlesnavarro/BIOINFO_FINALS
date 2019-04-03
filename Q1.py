@@ -6,7 +6,8 @@ if s.mode == 'r':
     sequence = Seq(s.read())
 
 # arr = []
-
+n = 0
+p = 0
 # src = sequence.reverse_complement()
 # s_new = sequence + src
 # aa = s_new.count_overlap("aa")
@@ -44,24 +45,27 @@ model.add_transition(s1, s1, 0.9998)
 model.add_transition(s1, s2, 0.0002)
 model.add_transition(s2, s2, 0.9998)
 model.add_transition(s2, s1, 0.0002)
-model.add_transition(s2, model.end, 0.1)
-model.add_transition(s1, model.end, 0.1)
+model.add_transition(s2, model.end, 0.5)
+model.add_transition(s1, model.end, 0.5)
 model.bake()
 
 print(model.predict(sequence, algorithm='viterbi'))
 for x in range(len(sequence)):
-    if(model.predict(sequence, algorithm='viterbi').pop(x) == 2):
-        print("start")
-        # arr.append("start")
+    # if(model.predict(sequence, algorithm='viterbi').pop(x) == 2):
+
+
     if(model.predict(sequence, algorithm='viterbi').pop(x) == 0):
-        print("at")
+        # print("at")
         # arr.append("at")
+        n = n + 1
     if(model.predict(sequence, algorithm='viterbi').pop(x) == 1):
-        print("cg")
+        # print("cg")
         # arr.append("cg")
-    if(model.predict(sequence, algorithm='viterbi').pop(x) == 3):
-        print("end")
-        # arr.append("end")
+        p = p + 1
+    # if(model.predict(sequence, algorithm='viterbi').pop(x) == 3):
+
+print(n)
+print(p)
 # example-start, s1, s2, s2, s2, s2, s2, s2, s2, s2, s2, s2, s2,
 # print(model)
 # model.viterbi(sequence)
