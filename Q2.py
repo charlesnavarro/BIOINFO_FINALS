@@ -72,7 +72,6 @@ def getScore (i, j, g):
         print("aa")
     elif (x[j-1] == 'a' and y[i-1] == 'c'):
         m1 = scoreTable[i - 1][j - 1] + matrix[0][1]
-        miss = miss + 1
         print("ac")
     elif (x[j-1] == 'a' and y[i-1] == 't'):
         m1 = scoreTable[i - 1][j - 1] + matrix[0][2]
@@ -130,7 +129,8 @@ def getScore (i, j, g):
     return max
 
 score = 0
-
+total = 0
+miss = 0
 scoreTable = numpy.zeros(shape=(len(y)+1, len(x)+1), dtype=int)
 #            r  c
 # scoreTable[0][1] = 1
@@ -149,6 +149,50 @@ for i in range(0, len(y)+1):
         if(i != 0 and j != 0):
             score = getScore(i, j, g)
             scoreTable[i][j] = score
+            if(x[j-1] == "a" and y[i-1] == "c"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "a" and y[i-1] == "t"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "a" and y[i-1] == "g"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "a" and y[i-1] == "a"):
+                total = total + 1
+            if (x[j-1] == "c" and y[i-1] == "g"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "c" and y[i-1] == "t"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "c" and y[i-1] == "a"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "c" and y[i-1] == "c"):
+                total = total + 1
+            if (x[j-1] == "t" and y[i-1] == "g"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "t" and y[i-1] == "c"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "t" and y[i-1] == "a"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "t" and y[i-1] == "t"):
+                total = total + 1
+            if (x[j-1] == "g" and y[i-1] == "a"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "g" and y[i-1] == "c"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "g" and y[i-1] == "t"):
+                miss = miss + 1
+                total = total + 1
+            if (x[j-1] == "g" and y[i-1] == "g"):
+                total = total + 1
         #BASE CASE
         if(i == 0):
             scoreTable[i][j] = j * g
@@ -156,3 +200,7 @@ for i in range(0, len(y)+1):
         elif(j == 0):
             scoreTable[i][j] = i * g
         print(scoreTable, "\n")
+fraction = miss / total
+print(miss)
+print(total)
+print(fraction)
