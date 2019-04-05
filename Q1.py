@@ -6,8 +6,8 @@ if s.mode == 'r':
     sequence = Seq(s.read())
 
 # arr = []
-n = 0
-p = 0
+ctrAT = 0
+ctrCG = 0
 # src = sequence.reverse_complement()
 # s_new = sequence + src
 # aa = s_new.count_overlap("aa")
@@ -30,14 +30,18 @@ p = 0
 # tt = s_new.count_overlap("tt")
 # tg = s_new.count_overlap("tg")
 
+#alphabet of symbols that are observed (initializing values of ACGT)
 d1 = DiscreteDistribution({'A': 0.2462, 'C': 0.2476, 'G': 0.2985, 'T': 0.2077})
 d2 = DiscreteDistribution({'A': 0.2700, 'C': 0.2084, 'G': 0.1981, 'T': 0.3236})
 
+#adding the values to the state
 s1 = State(d1, name="cg")
 s2 = State(d2, name="at")
 
+#initialize the HMM
 model = HiddenMarkovModel(sequence)
 
+#initialize the transition states
 model.add_states(s1, s2)
 model.add_transition(model.start, s1, 0.5)
 model.add_transition(model.start, s2, 0.5)
@@ -49,23 +53,24 @@ model.add_transition(s2, model.end, 0.5)
 model.add_transition(s1, model.end, 0.5)
 model.bake()
 
-print(model.predict(sequence, algorithm='viterbi'))
+viterbipath = model.predict(sequence, algorithm='viterbi')
+print(viterbipath)
+
 for x in range(len(sequence)):
-    # if(model.predict(sequence, algorithm='viterbi').pop(x) == 2):
-
-
-    if(model.predict(sequence, algorithm='viterbi').pop(x) == 0):
+    if viterbipath.pop(x) == 2:
+        print("h")
+    elif viterbipath.pop(x) == 0:
         # print("at")
         # arr.append("at")
-        n = n + 1
-    if(model.predict(sequence, algorithm='viterbi').pop(x) == 1):
+        ctrAT = ctrAT + 1
+    elif viterbipath.pop(x) == 1:
         # print("cg")
         # arr.append("cg")
-        p = p + 1
+        ctrCG = ctrCG + 1
     # if(model.predict(sequence, algorithm='viterbi').pop(x) == 3):
 
-print(n)
-print(p)
+print(ctrAT)
+print(ctrCG)
 # example-start, s1, s2, s2, s2, s2, s2, s2, s2, s2, s2, s2, s2,
 # print(model)
 # model.viterbi(sequence)
