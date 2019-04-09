@@ -3,23 +3,20 @@ from Bio import pairwise2
 from Bio import SeqIO
 from Bio.Phylo.TreeConstruction import DistanceMatrix, DistanceTreeConstructor
 
-
 # Define function readfile
-def readfile(filename):
+def readSequence(filename):
     file = open(filename)
     sequence = SeqIO.read(file, "fasta")
-
     return sequence
 
-
-def get_distance(align1, align2, score, begin, end):
+def get_distance(alignment1, alignment2, score, begin, end):
     mismatch = 0
     match = 0
     gap = 0
     s = []
-    s.append("%s\n" % align1)
+    s.append("%s\n" % alignment1)
     s.append(" " * begin)
-    for a, b in zip(align1[begin:end], align2[begin:end]):
+    for a, b in zip(alignment1[begin:end], alignment2[begin:end]):
         if a == b:
             s.append("|")  # match
             match = match + 1
@@ -30,7 +27,7 @@ def get_distance(align1, align2, score, begin, end):
             s.append(".")  # mismatch
             mismatch = mismatch + 1
     s.append("\n")
-    s.append("%s\n" % align2)
+    s.append("%s\n" % alignment2)
     s.append("Score=%g\n" % score)
     s.append("Match=%g\n" % match)
     s.append("Gap=%g\n" % gap)
@@ -40,10 +37,11 @@ def get_distance(align1, align2, score, begin, end):
 
 
 constructor = DistanceTreeConstructor()
-sequences = [readfile("1-AY278489.2.fasta"), readfile("2-AY394997.1.fasta"), readfile("3-AY394978.1.fasta"),
-             readfile("4-AY278554.2.fasta"), readfile("5-AY278741.1.fasta"), readfile("6-AY274119.3.fasta"),
-             readfile("7-AY283794.1.fasta"), readfile("8-AY291451.1.fasta"), readfile("9-AY345986.1.fasta"),
-             readfile("10-AY394999.1.fasta"), readfile("11-AY572034.1.fasta")]
+
+sequences = [readSequence("1-AY278489.2.fasta"), readSequence("2-AY394997.1.fasta"), readSequence("3-AY394978.1.fasta"),
+             readSequence("4-AY278554.2.fasta"), readSequence("5-AY278741.1.fasta"), readSequence("6-AY274119.3.fasta"),
+             readSequence("7-AY283794.1.fasta"), readSequence("8-AY291451.1.fasta"), readSequence("9-AY345986.1.fasta"),
+             readSequence("10-AY394999.1.fasta"), readSequence("11-AY572034.1.fasta")]
 
 names = ["Guangzhou", "Zhongshan", "Guangzhou2", "Hong Kong", "Hanoi", "Toronto", "Singapore", "Taiwan", "Hong Kong 2", "Hong Kong 3", "Palm Civet"]
 
