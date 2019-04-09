@@ -28,10 +28,10 @@ def get_distance(alignment1, alignment2, score, begin, end):
             mismatch = mismatch + 1
     s.append("\n")
     s.append("%s\n" % alignment2)
-    s.append("Score=%g\n" % score)
-    s.append("Match=%g\n" % match)
-    s.append("Gap=%g\n" % gap)
-    s.append("Mismatch=%g\n" % mismatch)
+    s.append("score=%g\n" % score)
+    s.append("match=%g\n" % match)
+    s.append("gap=%g\n" % gap)
+    s.append("mismatch=%g\n" % mismatch)
     distance = mismatch / match
     return distance
 
