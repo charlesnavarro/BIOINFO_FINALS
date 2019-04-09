@@ -1,81 +1,71 @@
-#BIOINFO MIDTERM Q1
-import numpy
+# Import libraries
+from Bio import pairwise2
+from Bio import SeqIO
+from Bio.Phylo.TreeConstruction import DistanceMatrix, DistanceTreeConstructor
 
 
-#tacggtat
-f = open("1-AY278489.2.txt", "r")
-if f.mode == 'r':
-    x = (f.read()).lower()
-#ggacgtacg
-f = open("2-AY394997.1.txt", "r")
-if f.mode == 'r':
-    y = (f.read()).lower()
-print(x, y)
+# Define function readfile
+def readfile(filename):
+    file = open(filename)
+    sequence = SeqIO.read(file, "fasta")
 
-score = 0
-total = 0
-miss = 0
+    return sequence
 
 
-# if(len(x)>len(y)):
-#     g = 1 * (len(y) - len(x))
-# elif(len(y)> len(x)):
-#     g = 1 * (len(x) - len(y))
-# elif(len(x) == len(y)):
-#     g = 0
+def get_distance(align1, align2, score, begin, end):
+    mismatch = 0
+    match = 0
+    gap = 0
+    s = []
+    s.append("%s\n" % align1)
+    s.append(" " * begin)
+    for a, b in zip(align1[begin:end], align2[begin:end]):
+        if a == b:
+            s.append("|")  # match
+            match = match + 1
+        elif a == "-" or b == "-":
+            s.append(" ")  # gap
+            gap = gap + 11
+        else:
+            s.append(".")  # mismatch
+            mismatch = mismatch + 1
+    s.append("\n")
+    s.append("%s\n" % align2)
+    s.append("Score=%g\n" % score)
+    s.append("Match=%g\n" % match)
+    s.append("Gap=%g\n" % gap)
+    s.append("Mismatch=%g\n" % mismatch)
+    distance = mismatch / match
+    return distance
 
 
-for i in range(0, len(y)+1):
-        #NOT A BASE CASE
-        if(i != 0):
-            # score = getScore(i, j, g)
-            # scoreTable[i][j] = score
-            if(x[i-1] == "a" and y[i-1] == "c"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "a" and y[i-1] == "t"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "a" and y[i-1] == "g"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "a" and y[i-1] == "a"):
-                total = total + 1
-            if (x[i-1] == "c" and y[i-1] == "g"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "c" and y[i-1] == "t"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "c" and y[i-1] == "a"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "c" and y[i-1] == "c"):
-                total = total + 1
-            if (x[i-1] == "t" and y[i-1] == "g"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "t" and y[i-1] == "c"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "t" and y[i-1] == "a"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "t" and y[i-1] == "t"):
-                total = total + 1
-            if (x[i-1] == "g" and y[i-1] == "a"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "g" and y[i-1] == "c"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "g" and y[i-1] == "t"):
-                miss = miss + 1
-                total = total + 1
-            if (x[i-1] == "g" and y[i-1] == "g"):
-                total = total + 1
+constructor = DistanceTreeConstructor()
+sequences = [readfile("1-AY278489.2.fasta"), readfile("2-AY394997.1.fasta"), readfile("3-AY394978.1.fasta"),
+             readfile("4-AY278554.2.fasta"), readfile("5-AY278741.1.fasta"), readfile("6-AY274119.3.fasta"),
+             readfile("7-AY283794.1.fasta"), readfile("8-AY291451.1.fasta"), readfile("9-AY345986.1.fasta"),
+             readfile("10-AY394999.1.fasta"), readfile("11-AY572034.1.fasta")]
 
-fraction = miss / total
-print(miss)
-print(total)
-print(fraction)
+names = ["Guangzhou", "Zhongshan", "Guangzhou2", "Hong Kong", "Hanoi", "Toronto", "Singapore", "Taiwan", "Hong Kong 2", "Hong Kong 3", "Palm Civet"]
+
+distanceMatrix = []
+
+for x in range(0, 11):
+    oneList = []
+    for y in range(0, 11):
+        if x == y:
+            oneList.append(0)
+        elif x > y:
+            alignments = pairwise2.align.globalxx(sequences[x], sequences[y])
+            max_mismatch = 0
+            for aln in alignments:
+                curr_mismatch = get_distance(*aln)
+                if max_mismatch < curr_mismatch:
+                    max_mismatch = curr_mismatch
+            oneList.append(max_mismatch)
+    distanceMatrix.append(oneList)
+
+dMatrix = DistanceMatrix(names, distanceMatrix)
+upgmaTree = constructor.upgma(dMatrix)
+print(upgmaTree)
+
+
