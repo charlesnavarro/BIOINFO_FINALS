@@ -14,10 +14,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$Q2.coverage" NAME="Q2 Coverage Results" MODIFIED="1554803676320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$Q2.coverage" NAME="Q2 Coverage Results" MODIFIED="1554884538780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$bioinfo_midterm_q1.coverage" NAME="bioinfo_midterm_q1 Coverage Results" MODIFIED="1554277077397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../BIOINFO_MIDTERM_Q1" />
     <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$bioinfo2.coverage" NAME="bioinfo2 Coverage Results" MODIFIED="1554201148000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../BIOINFO_HW2" />
-    <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$Q1.coverage" NAME="Q1 Coverage Results" MODIFIED="1554883882525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$Q1.coverage" NAME="Q1 Coverage Results" MODIFIED="1554884509169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -132,7 +132,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Q1">
+  <component name="RunManager" selected="Python.Q2">
     <configuration name="Q1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="BIOINFO_FINALS_Q1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -245,8 +245,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Q1" />
         <item itemvalue="Python.Q2" />
+        <item itemvalue="Python.Q1" />
         <item itemvalue="Python.bioinfo_midterm_q1" />
         <item itemvalue="Python.bioinfo2" />
       </list>
