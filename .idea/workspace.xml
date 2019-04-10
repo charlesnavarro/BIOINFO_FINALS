@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26589875-226a-494b-b1cd-caa5a51eee0c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Q2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Q2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BIOINFO_FINALS_Q1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BIOINFO_FINALS_Q1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Q1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,10 +14,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$Q2.coverage" NAME="Q2 Coverage Results" MODIFIED="1554800954334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$Q2.coverage" NAME="Q2 Coverage Results" MODIFIED="1554803676320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$bioinfo_midterm_q1.coverage" NAME="bioinfo_midterm_q1 Coverage Results" MODIFIED="1554277077397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../BIOINFO_MIDTERM_Q1" />
-    <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$Q1.coverage" NAME="Q1 Coverage Results" MODIFIED="1554797118569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$bioinfo2.coverage" NAME="bioinfo2 Coverage Results" MODIFIED="1554201148000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../BIOINFO_HW2" />
+    <SUITE FILE_PATH="coverage/BIOINFO_FINALS_Q1$Q1.coverage" NAME="Q1 Coverage Results" MODIFIED="1554883882525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -27,23 +30,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Q2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-              <folding>
-                <element signature="e#19#44#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Q1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+            <state relative-caret-position="1959">
+              <caret line="159" column="31" selection-start-line="159" selection-start-column="31" selection-end-line="159" selection-end-column="31" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -82,16 +82,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../BIOINFO_MIDTERM_Q1/bioinfo_midterm_q1.py" />
-        <option value="$PROJECT_DIR$/Q1.py" />
         <option value="$PROJECT_DIR$/Q2.py" />
+        <option value="C:/Program Files (x86)/Python37-32/Lib/site-packages/plotly/tools.py" />
+        <option value="$PROJECT_DIR$/Q1.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="357" />
+    <option name="x" value="355" />
     <option name="y" value="-20" />
     <option name="width" value="980" />
-    <option name="height" value="788" />
+    <option name="height" value="790" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -131,7 +132,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Q2">
+  <component name="RunManager" selected="Python.Q1">
     <configuration name="Q1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="BIOINFO_FINALS_Q1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -244,8 +245,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Q2" />
         <item itemvalue="Python.Q1" />
+        <item itemvalue="Python.Q2" />
         <item itemvalue="Python.bioinfo_midterm_q1" />
         <item itemvalue="Python.bioinfo2" />
       </list>
@@ -269,11 +270,14 @@
       <workItem from="1554340137835" duration="6330000" />
       <workItem from="1554741582545" duration="677000" />
       <workItem from="1554796954053" duration="3523000" />
+      <workItem from="1554803577085" duration="2045000" />
+      <workItem from="1554876741252" duration="4678000" />
+      <workItem from="1554882708593" duration="1392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33047000" />
+    <option name="totallyTimeSpent" value="41162000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -285,15 +289,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13086233" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13624161" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.32569557" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.3243626" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -309,7 +313,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="5" side_tool="true" visible="true" weight="0.16565809" />
+      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="5" side_tool="true" visible="true" weight="0.16442953" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,13 +383,18 @@
         <state relative-caret-position="-336" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1-AY278489.2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/1-AY278489.2.txt" />
     <entry file="file://$PROJECT_DIR$/../BIOINFO_HW2/bioinfo2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2856">
           <caret line="168" column="38" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -396,22 +405,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Q1.py">
+    <entry file="file://C:/Program Files (x86)/Python37-32/Lib/site-packages/plotly/tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="403" selection-start-line="403" selection-end-line="403" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Q2.py">
+    <entry file="file://C:/Program Files (x86)/Python37-32/Lib/site-packages/plotly/plotly/plotly.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        <state relative-caret-position="150">
+          <caret line="187" selection-start-line="187" selection-end-line="187" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1959">
+          <caret line="159" column="31" selection-start-line="159" selection-start-column="31" selection-end-line="159" selection-end-column="31" />
           <folding>
-            <element signature="e#19#44#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
